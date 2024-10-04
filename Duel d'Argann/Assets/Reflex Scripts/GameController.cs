@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -21,10 +22,15 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject WinText;
     private TextMeshProUGUI textComponent;
 
+    string currentSceneName;
+
+
+
 
     PlayerInput playerInput;
     InputAction player1Action;
     InputAction player2Action;
+    InputAction reloadAction;
 
 
 
@@ -34,6 +40,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
         WinText.SetActive(false);
 
         textComponent = WinText.GetComponent<TextMeshProUGUI>();
@@ -42,8 +49,7 @@ public class GameController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         player1Action = playerInput.actions.FindAction("Player1Action");
         player2Action = playerInput.actions.FindAction("Player2Action");
-
-        Debug.Log(player1Action);
+        reloadAction = playerInput.actions.FindAction("ReloadAction");
 
         cubeRenderer = cube.GetComponent<Renderer>();
     }
@@ -60,17 +66,15 @@ public class GameController : MonoBehaviour
             }
 
             if (player1Action.WasPressedThisFrame() && cubeRenderer.material.color == Color.green)
-            {
                 Win("Player 1 Win");
                 
-            }
 
             else if (player2Action.WasPressedThisFrame() && cubeRenderer.material.color == Color.green)
-            {
                 Win("Player 2 Win");
-            }
 
         }
+        if (reloadAction.WasPressedThisFrame())
+            SceneManager.LoadScene(currentSceneName);
     }
 
     private void Win(string textPlayerWin)
@@ -78,6 +82,8 @@ public class GameController : MonoBehaviour
         gamePlay = false;
         WinText.SetActive(true);
         textComponent.text = textPlayerWin;
+        
+
     }
 
     IEnumerator Wait()
@@ -88,4 +94,5 @@ public class GameController : MonoBehaviour
         cubeRenderer.material.color = Color.green;
         
     }
+
 }
