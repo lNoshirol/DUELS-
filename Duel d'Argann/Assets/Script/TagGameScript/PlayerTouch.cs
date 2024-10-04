@@ -21,11 +21,8 @@ public class PlayerTouch : MonoBehaviour
         if (other.gameObject.tag == _tag)
         {
             Debug.Log("Touché !");
-
-            if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);//suce
-            _rb.AddForce(-other.relativeVelocity * _inpulsionForce, ForceMode2D.Impulse);
-
-
+            if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);
+            _rb.AddForce(Vector2.left * Mathf.Sign(other.transform.position.x - transform.position.x) * _inpulsionForce, ForceMode2D.Impulse);
         }
     }
 }
