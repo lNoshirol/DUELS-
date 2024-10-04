@@ -20,7 +20,7 @@ public class PlayerTouch : MonoBehaviour
         if (other.gameObject.tag == _tag)
         {
             Debug.Log("Touché !");
-            if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);
+            if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);//suce
         }
     }
 }
