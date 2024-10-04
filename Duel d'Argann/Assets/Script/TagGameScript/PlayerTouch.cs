@@ -21,13 +21,11 @@ public class PlayerTouch : MonoBehaviour
         if (other.gameObject.tag == _tag)
         {
             Debug.Log("Touché !");
-<<<<<<< Updated upstream
+
             if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);//suce
-=======
-            if (_bomb.activeInHierarchy) _bomb.SetActive(false); else _bomb.SetActive(true);
             _rb.AddForce(-other.relativeVelocity * _inpulsionForce, ForceMode2D.Impulse);
 
->>>>>>> Stashed changes
+
         }
     }
 }
