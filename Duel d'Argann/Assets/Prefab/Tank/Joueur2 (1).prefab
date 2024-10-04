@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1264787608076387568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496422758024747379}
+  m_Layer: 0
+  m_Name: _fireSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496422758024747379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264787608076387568}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.59, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1811621875226459047}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2601862626906896336
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +146,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6299642074450121583}
+  - {fileID: 496422758024747379}
   m_Father: {fileID: 6826651347150675653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &4446133633103146602
@@ -468,6 +500,7 @@ GameObject:
   - component: {fileID: 8615516948188300941}
   - component: {fileID: 4759275586849166556}
   - component: {fileID: 7323256663385262708}
+  - component: {fileID: 4354250790794600557}
   - component: {fileID: 2850788720698023320}
   m_Layer: 0
   m_Name: Joueur2 (1)
@@ -588,6 +621,22 @@ MonoBehaviour:
   jspAVecLeSida: 0
   turretOrientationValue: 450
   turretObject: {fileID: 2601862626906896336}
+  tank1: 0
+--- !u!114 &4354250790794600557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823691647847348873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea21579a327e3f4884e6708c658b215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletForce: 800
+  _tankTurret: {fileID: 2601862626906896336}
+  _fireSpawnPoint: {fileID: 1264787608076387568}
 --- !u!114 &2850788720698023320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +702,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6f0debc0-39fe-4ce6-9441-b092e232fc2f
     m_ActionName: Tank2/RotateTurret
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6e2573b-8583-4c47-a1c1-8b57ad32444b
+    m_ActionName: Tank1/Fire[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4354250790794600557}
+        m_TargetAssemblyTypeName: Fire, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8b056281-d272-472a-bd2e-10eabd4eadb8
+    m_ActionName: Tank2/Fire
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Tank2

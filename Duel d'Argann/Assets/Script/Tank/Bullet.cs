@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -10,9 +10,10 @@ public class Fire : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitBeforeGoBackToList()
     {
-        
+        yield return new WaitForSeconds(10);
     }
+
+    
 }

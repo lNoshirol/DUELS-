@@ -17,19 +17,19 @@ public class Control : MonoBehaviour
 
     [SerializeField] GameObject turretObject;
 
+    [SerializeField] bool tank1;
+
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.started)
         {
             isStickUse = true;
-            Debug.Log("STAR MOVE");
         }
         if (callbackContext.canceled)
         {
             isStickUse = false;
         }
         Vector2 orientation = callbackContext.ReadValue<Vector2>();
-        //Debug.Log(orientation);
         moovement = new Vector3(orientation.x, 0, 0);
     }
 
@@ -44,6 +44,11 @@ public class Control : MonoBehaviour
             else
             {
                 jspAVecLeSida = -1;
+            }
+
+            if (tank1)
+            {
+                jspAVecLeSida *= -1;
             }
 
         }
