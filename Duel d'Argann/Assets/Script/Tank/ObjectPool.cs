@@ -46,4 +46,15 @@ public class ObjectPool : MonoBehaviour
     {
         return Instantiate(_bulletPrefab);
     }
+
+    public void ResetBullet(GameObject bullet)
+    {
+        bullet.GetComponent<Bullet>().ResetTag();
+        bullet.SetActive(false);
+        bullet.transform.position = Vector3.zero;
+        if (!_bulletList.Contains(bullet)) 
+        { 
+            _bulletList.Add(bullet);
+        }
+    }
 }

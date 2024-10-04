@@ -12,8 +12,8 @@ public class Control : MonoBehaviour
 
     [SerializeField] private Bounds moovementLimits;
     private Vector3 moovement;
-    [SerializeField] private float jspAVecLeSida;
-    [SerializeField] private float  turretOrientationValue;
+    [SerializeField] private float TurretRota;
+    [SerializeField] private float turretOrientationValue;
 
     [SerializeField] GameObject turretObject;
 
@@ -39,22 +39,22 @@ public class Control : MonoBehaviour
         {
             if (callbackContext.ReadValue<Vector2>().y > 0)
             {
-                jspAVecLeSida = 1;
+                TurretRota = 1;
             }
             else
             {
-                jspAVecLeSida = -1;
+                TurretRota = -1;
             }
 
             if (tank1)
             {
-                jspAVecLeSida *= -1;
+                TurretRota *= -1;
             }
 
         }
         if (callbackContext.canceled)
         {
-            jspAVecLeSida = 0;
+            TurretRota = 0;
         }
 
     }
@@ -74,10 +74,10 @@ public class Control : MonoBehaviour
             transform.position = moovementLimits.ClosestPoint(transform.position);
         }
 
-        if (jspAVecLeSida != 0 && 900 >= turretOrientationValue && turretOrientationValue >= 0)
+        if (TurretRota != 0 && 900 >= turretOrientationValue && turretOrientationValue >= 0)
         {
-            turretOrientationValue += jspAVecLeSida * Time.deltaTime;
-            turretObject.transform.Rotate(new Vector3(0, 0, jspAVecLeSida));
+            turretOrientationValue += TurretRota * Time.deltaTime;
+            turretObject.transform.Rotate(new Vector3(0, 0, TurretRota));
         }
     }
 

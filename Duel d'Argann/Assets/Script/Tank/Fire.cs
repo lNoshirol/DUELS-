@@ -17,7 +17,7 @@ public class Fire : MonoBehaviour
             Vector3 _fireDirection = _fireSpawnPoint.transform.position - _tankTurret.transform.position;
 
             GameObject newBullet = GETTHENEWBULLET();
-            
+            newBullet.tag = gameObject.tag;
             newBullet.transform.position = _fireSpawnPoint.transform.position;
             newBullet.SetActive(true);
             newBullet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
