@@ -659,6 +659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag: Player 2
   _bomb: {fileID: 1813888477}
+  _inpulsionForce: 10
+  _inpulsionOrientation: {x: 1, y: 1}
 --- !u!1 &772990653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag: Player
   _bomb: {fileID: 655579625}
+  _inpulsionForce: 10
+  _inpulsionOrientation: {x: -1, y: -1}
 --- !u!1 &1813888477
 GameObject:
   m_ObjectHideFlags: 0
