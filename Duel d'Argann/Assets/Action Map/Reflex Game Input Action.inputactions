@@ -1,0 +1,66 @@
+{
+    "name": "Reflex Game Input Action",
+    "maps": [
+        {
+            "name": "reflexgame",
+            "id": "bc12c1c2-69ea-45d2-8fc5-e83a4c1bd5da",
+            "actions": [
+                {
+                    "name": "Player1Action",
+                    "type": "Button",
+                    "id": "fc180002-5a38-467f-97dc-64363e129703",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Player2Action",
+                    "type": "Button",
+                    "id": "78c66ef2-ca63-44cd-93ea-4b000d579270",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "222440b6-fc72-42c1-a730-c2688df867ce",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player1Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06874f6e-006f-4ed6-8910-b40febcf9b21",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "keyboard",
+            "bindingGroup": "keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
