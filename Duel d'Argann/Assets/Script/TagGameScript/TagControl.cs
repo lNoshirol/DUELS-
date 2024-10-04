@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TagControl : MonoBehaviour
 {
-    private float _vitesse;
+    private float _speed;
     private Rigidbody2D _rb;
-    public KeyCode Right;
-    public KeyCode Left;
-    public KeyCode Up;
+    [SerializeField] private KeyCode _right;
+    [SerializeField] private KeyCode _left;
+    [SerializeField] private KeyCode _up;
     private bool _isGrounded;
     [SerializeField] private LayerMask _mask;
 
@@ -16,7 +14,7 @@ public class TagControl : MonoBehaviour
 
     void Start()
     {
-        _vitesse = 10f;
+        _speed = 10f;
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -40,27 +38,27 @@ public class TagControl : MonoBehaviour
 
     private void MoveRight()
     {
-        if (Input.GetKey(Right))
+        if (Input.GetKey(_right))
         {
             //Debug.Log("right");
-            transform.transform.transform.transform.Translate(Vector3.right * _vitesse * Time.deltaTime);
+            transform.transform.transform.transform.Translate(Vector3.right * _speed * Time.deltaTime);
         }
     }
 
     private void MoveLeft()
     {
-        if (Input.GetKey(Left))
+        if (Input.GetKey(_left))
         {
             //Debug.Log("left");
-            transform.transform.transform.transform.Translate(Vector3.left * _vitesse * Time.deltaTime);
+            transform.transform.transform.transform.Translate(Vector3.left * _speed * Time.deltaTime);
         }
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(Up) && _isGrounded)
+        if (Input.GetKeyDown(_up) && _isGrounded)
         {
-            Debug.Log("Saut");
+            //Debug.Log("Saut");
             _rb.AddForce(transform.up * 500);
         }
     }
