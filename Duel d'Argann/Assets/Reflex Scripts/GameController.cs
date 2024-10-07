@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField] SpriteRenderer whiteRect;
-    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] Text countdownText;
     public GameObject cube;
 
     private ReflexGameInput _reflexGameInput;
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     private bool gamePlay;
 
     [SerializeField] GameObject WinText;
-    private TextMeshProUGUI textComponent;
+    private Text textComponent;
 
 
     PlayerInput playerInput;
@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     {
         WinText.SetActive(false);
 
-        textComponent = WinText.GetComponent<TextMeshProUGUI>();
+        textComponent = WinText.GetComponent<Text>();
         gamePlay = true;
 
         playerInput = GetComponent<PlayerInput>();
