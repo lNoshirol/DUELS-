@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class VictoryCondition : MonoBehaviour
@@ -7,12 +5,6 @@ public class VictoryCondition : MonoBehaviour
     [SerializeField] Chrono _chrono;
     [SerializeField] GameObject _player1Tag;
     [SerializeField] GameObject _player2Tag;
-    
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (_chrono.Timer <= 0 && _player1Tag.activeInHierarchy)
