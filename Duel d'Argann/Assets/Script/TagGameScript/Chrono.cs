@@ -1,13 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chrono : MonoBehaviour
 {
-    [SerializeField] float _timer;
+    [field : SerializeField] public float Timer {  get; set; }
     [SerializeField] TMP_Text _textTimer;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +15,14 @@ public class Chrono : MonoBehaviour
     }
     private void Update()
     {
-        _textTimer.text = _timer.ToString();
-        Debug.Log(_timer);
+        _textTimer.text = Timer.ToString();
+        Debug.Log(Timer);
     }
     public IEnumerator ChronoTime()
     {
-        _timer--;
+        Timer--;
         yield return new WaitForSeconds(1);  
-        if (_timer > 0)
+        if (Timer > 0)
         {
             StartCoroutine(ChronoTime());
         }        
