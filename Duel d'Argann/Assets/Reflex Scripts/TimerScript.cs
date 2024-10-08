@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TimerScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI countdownText; // [SerializeField => show private variable in inspector
+    [SerializeField] Text countdownText; // [SerializeField => show private variable in inspector
     [SerializeField] float remainingTime;
     public bool countdownFinish = false;
     // Update is called once per frame

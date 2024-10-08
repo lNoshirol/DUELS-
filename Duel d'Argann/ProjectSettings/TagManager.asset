@@ -7,11 +7,12 @@ TagManager:
   - Ground
   - Tank1
   - Tank2
+  - Player 2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
