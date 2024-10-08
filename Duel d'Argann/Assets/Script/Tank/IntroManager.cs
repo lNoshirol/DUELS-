@@ -7,6 +7,7 @@ public class IntroManager : MonoBehaviour
 {
     private VideoPlayer _vidPlayer;
     [SerializeField] GameObject _theScene;
+    [SerializeField] GameObject IntroSHitCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class IntroManager : MonoBehaviour
     {
         yield return new WaitForSeconds((float)_vidPlayer.clip.length);
         _theScene.SetActive(true);
+        IntroSHitCanvas.SetActive(false);
         gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SongSelector : MonoBehaviour
 {
-    [SerializeField] PlayerSongs slectedPlayer;
+    [SerializeField] PLayerSounds slectedPlayer;
     [SerializeField] TextMeshProUGUI playerText;
 
 
