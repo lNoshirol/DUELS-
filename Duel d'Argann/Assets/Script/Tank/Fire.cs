@@ -10,9 +10,12 @@ public class Fire : MonoBehaviour
     [SerializeField] GameObject _tankTurret;
     [SerializeField] GameObject _fireSpawnPoint;
 
+    [SerializeField] float fireCountDown;
+    [SerializeField] bool canFire;
+
     public void OnFire(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.started)
+        if (callbackContext.started && canFire)
         {
             Vector3 _fireDirection = _fireSpawnPoint.transform.position - _tankTurret.transform.position;
 
@@ -22,6 +25,9 @@ public class Fire : MonoBehaviour
             newBullet.SetActive(true);
             newBullet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             newBullet.GetComponent<Rigidbody2D>().AddForce(_fireDirection * _bulletForce);
+            GetComponent<PLayerSounds>().PlayFireSound();
+            canFire = false;
+            StartCoroutine(CountDown());
         }
     }
 
@@ -37,5 +43,11 @@ public class Fire : MonoBehaviour
             GameObject newBullet = ObjectPool.instance.BulletInstantiate();
             return newBullet;
         }
+    }
+
+    IEnumerator CountDown()
+    {
+        yield return new WaitForSeconds(fireCountDown);
+        canFire = true;
     }
 }

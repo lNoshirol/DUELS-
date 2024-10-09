@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PLayerSounds : MonoBehaviour
 {
-    private AudioSource _AudioSource;
+    [SerializeField] private AudioSource _AudioSource;
 
     public AudioClip introSound;
     public AudioClip fireSound;
