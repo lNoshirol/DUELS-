@@ -6,11 +6,11 @@ public class PLayerSounds : MonoBehaviour
 {
     private AudioSource _AudioSource;
 
-    [SerializeField] AudioClip _introSound;
-    [SerializeField] AudioClip _fireSound;
-    [SerializeField] AudioClip _hitSound;
-    [SerializeField] AudioClip _deadSound;
-    [SerializeField] AudioClip _winSund;
+    public AudioClip introSound;
+    public AudioClip fireSound;
+    public AudioClip hitSound;
+    public AudioClip deadSound;
+    public AudioClip winSound;
 
     private void Start()
     {
@@ -19,26 +19,26 @@ public class PLayerSounds : MonoBehaviour
 
     public void PlayIntroSound()
     {
-        _AudioSource.PlayOneShot(_introSound);
+        _AudioSource.PlayOneShot(introSound);
     }
 
     public void PlayFireSound()
     {
-        _AudioSource.PlayOneShot(_fireSound);
+        _AudioSource.PlayOneShot(fireSound);
     }
 
     public void PlayHitSound()
     {
-        _AudioSource.PlayOneShot(_hitSound);
+        _AudioSource.PlayOneShot(hitSound);
     }
 
     public void PlayDeadSound()
     {
-        _AudioSource.PlayOneShot(_deadSound);
+        _AudioSource.PlayOneShot(deadSound);
     }
 
     public void PlayWinSound()
     {
-        _AudioSource.PlayOneShot(_winSund);
+        _AudioSource.PlayOneShot(winSound);
     }
 }

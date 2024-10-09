@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 4354250790794600557}
   - component: {fileID: 2850788720698023320}
   - component: {fileID: 6924018448381076538}
+  - component: {fileID: 91904267520171521}
   - component: {fileID: 8829530830417299567}
   m_Layer: 0
   m_Name: Joueur2 (1)
@@ -510,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6826651347150675653
 Transform:
   m_ObjectHideFlags: 0
@@ -743,6 +744,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   healthText: {fileID: 0}
+--- !u!114 &91904267520171521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823691647847348873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943602a129e08624e97bdb85703d4256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _introSound: {fileID: 0}
+  _fireSound: {fileID: 0}
+  _hitSound: {fileID: 0}
+  _deadSound: {fileID: 0}
+  _winSund: {fileID: 0}
 --- !u!82 &8829530830417299567
 AudioSource:
   m_ObjectHideFlags: 0
