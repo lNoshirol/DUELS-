@@ -13,7 +13,7 @@ public class Control : MonoBehaviour
     [SerializeField] private Bounds moovementLimits;
     private Vector3 moovement;
     [SerializeField] private float TurretRota;
-    [SerializeField] private float turretOrientationValue;
+    [SerializeField] private float TurretSpeed;
 
     [SerializeField] GameObject turretObject;
 
@@ -35,7 +35,7 @@ public class Control : MonoBehaviour
 
     public void OnRotateTurret(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.started && turretOrientationValue >= 0)
+        if (callbackContext.started)
         {
             if (callbackContext.ReadValue<Vector2>().y > 0)
             {
@@ -66,7 +66,7 @@ public class Control : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isStickUse)
         {
@@ -74,10 +74,9 @@ public class Control : MonoBehaviour
             transform.position = moovementLimits.ClosestPoint(transform.position);
         }
 
-        if (TurretRota != 0 && 900 >= turretOrientationValue && turretOrientationValue >= 0)
+        if (TurretRota != 0)
         {
-            turretOrientationValue += TurretRota * Time.deltaTime;
-            turretObject.transform.Rotate(new Vector3(0, 0, TurretRota));
+            turretObject.transform.Rotate(new Vector3(0, 0, TurretRota) * TurretSpeed);
         }
     }
 

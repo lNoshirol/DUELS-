@@ -18,6 +18,8 @@ public class Win : MonoBehaviour
 
     public void AndThisIsTheWin(GameObject player)
     {
+        
+
         WinPanel.SetActive(true);
         player.GetComponent<PLayerSounds>().PlayWinSound();
         WinTextPlayer.text = player.name + " ! gg mec, t'as gagné. Alors heureux ?";
