@@ -8474,6 +8474,7 @@ MonoBehaviour:
   HasPressedYKey: 0
   ReloadShit: {fileID: 810921840}
   jspFrere: {fileID: 511896007}
+  jspFrere2: {fileID: 566725918}
 --- !u!1001 &1543115530
 PrefabInstance:
   m_ObjectHideFlags: 0
