@@ -13,6 +13,8 @@ public class Reloadscene : MonoBehaviour
 
     [SerializeField] GameObject ReloadShit;
 
+    [SerializeField] GameObject jspFrere;
+
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
@@ -29,6 +31,7 @@ public class Reloadscene : MonoBehaviour
 
     IEnumerator StartSongAndDestroy()
     {
+        jspFrere.SetActive(false);
         m_AudioSource.PlayOneShot(outroSong);
         ReloadShit.SetActive(true);
         yield return new WaitForSeconds(60);

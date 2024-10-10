@@ -41,4 +41,9 @@ public class PLayerSounds : MonoBehaviour
     {
         _AudioSource.PlayOneShot(winSound);
     }
+
+    public void StopSound()
+    {
+        _AudioSource.Stop();
+    }
 }

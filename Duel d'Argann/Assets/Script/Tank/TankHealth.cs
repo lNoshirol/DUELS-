@@ -31,6 +31,7 @@ public class TankHealth : MonoBehaviour
             LimageDeMort.Instance.transform.position = new Vector3(transform.position.x, LimageDeMort.Instance.transform.position.y, 0);
             LimageDeMort.Instance.gameObject.SetActive(true);
             healthText.text = health.ToString();
+            GetComponent<PLayerSounds>().StopSound();
             StartCoroutine(StartWin());
         }
         else if (!isDead)
