@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     private Text player2TextComponent;
 
     string currentSceneName;
+    float menuSceneName;
 
     [SerializeField] Text player1;
     [SerializeField] Text player2;
@@ -43,6 +44,7 @@ public class GameController : MonoBehaviour
     InputAction player1Action;
     InputAction player2Action;
     InputAction restartAction;
+    InputAction menuAction;
 
 
 
@@ -71,6 +73,7 @@ public class GameController : MonoBehaviour
         player2Action = playerInput.actions.FindAction("Player2Action");
 
         restartAction = playerInput.actions.FindAction("RestartAction");
+        menuAction = playerInput.actions.FindAction("MenuAction");
 
         loseTextComponent.text = "";
 
@@ -84,6 +87,11 @@ public class GameController : MonoBehaviour
     {
 
         loseTextCheck = loseTextComponent.text;
+        if (menuAction.WasPressedThisFrame())
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
         if (timerScript.countdownFinish && gamePlay)
         {
             if (coroutine)
