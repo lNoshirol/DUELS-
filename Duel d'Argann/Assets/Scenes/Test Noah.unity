@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16473bd059000e240b49c688c9fdd1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Timer>k__BackingField: 30
+  <Timer>k__BackingField: 5
   _textTimer: {fileID: 674555041}
 --- !u!4 &1779010234
 Transform:
@@ -1912,6 +1912,7 @@ MonoBehaviour:
   _chrono: {fileID: 1779010233}
   _player1Tag: {fileID: 1813888477}
   _player2Tag: {fileID: 655579625}
+  _playerExplosion: {fileID: 21300000, guid: 27df5f7d9641dc147b8bf55dd3cce78a, type: 3}
 --- !u!1 &1813888477
 GameObject:
   m_ObjectHideFlags: 0
