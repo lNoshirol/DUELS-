@@ -5,29 +5,35 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 
-    [SerializeField] SpriteRenderer whiteRect;
     [SerializeField] Text countdownText;
     public GameObject cube;
 
     private ReflexGameInput _reflexGameInput;
 
     private Renderer cubeRenderer;
+    private MeshRenderer cubeMeshRenderer;
 
     private bool gamePlay;
     private bool waitTime;
+    private bool cubeHide;
 
-    [SerializeField] GameObject WinText;
-    [SerializeField] GameObject LoseText;
+    [SerializeField] GameObject winText;
+    [SerializeField] GameObject loseText;
+    [SerializeField] GameObject restartText;
+
     private Text winTextComponent;
     private Text loseTextComponent;
     private string loseTextCheck;
 
     private Text player1TextComponent;
     private Text player2TextComponent;
+
+    string currentSceneName;
 
     [SerializeField] Text player1;
     [SerializeField] Text player2;
@@ -36,6 +42,7 @@ public class GameController : MonoBehaviour
     PlayerInput playerInput;
     InputAction player1Action;
     InputAction player2Action;
+    InputAction restartAction;
 
 
 
@@ -45,11 +52,14 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WinText.SetActive(false);
-        LoseText.SetActive(false);
+        winText.SetActive(false);
+        loseText.SetActive(false);
+        restartText.SetActive(false);
 
-        winTextComponent = WinText.GetComponent<Text>();
-        loseTextComponent = LoseText.GetComponent<Text>();
+        currentSceneName = SceneManager.GetActiveScene().name;
+
+        winTextComponent = winText.GetComponent<Text>();
+        loseTextComponent = loseText.GetComponent<Text>();
 
         player1TextComponent = player1.GetComponent<Text>();
         player2TextComponent = player2.GetComponent<Text>();
@@ -60,10 +70,13 @@ public class GameController : MonoBehaviour
         player1Action = playerInput.actions.FindAction("Player1Action");
         player2Action = playerInput.actions.FindAction("Player2Action");
 
+        restartAction = playerInput.actions.FindAction("RestartAction");
+
         loseTextComponent.text = "";
 
 
         cubeRenderer = cube.GetComponent<Renderer>();
+        cubeMeshRenderer = cube.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -79,18 +92,25 @@ public class GameController : MonoBehaviour
                 coroutine = false;
             }
 
-            if (player1Action.WasPressedThisFrame() && cubeRenderer.material.color == Color.green)
+            if (player1Action.WasPressedThisFrame() && cubeHide)
             {
                 Win("Player 1 Win");
                 
             }
 
-            else if (player2Action.WasPressedThisFrame() && cubeRenderer.material.color == Color.green)
+            else if (player2Action.WasPressedThisFrame() && cubeHide)
             {
                 Win("Player 2 Win");
             }
-
         }
+
+        else if (restartAction.WasPressedThisFrame() && cubeHide)
+        {
+            SceneManager.LoadScene(currentSceneName);
+        }
+
+
+      
         if(waitTime)
         {
             if (player1Action.WasPressedThisFrame())
@@ -103,14 +123,16 @@ public class GameController : MonoBehaviour
                 Lose("Player 2 is too fast");
                 
             }
+            
         }
     }
 
     private void Win(string textPlayerWin)
     {
         gamePlay = false;
-        WinText.SetActive(true);
-        winTextComponent.text += textPlayerWin;
+        winText.SetActive(true);
+        winTextComponent.text = textPlayerWin;
+        restartText.SetActive(true);
     }
 
     private void Lose(string texPlayerLoose)
@@ -130,7 +152,7 @@ public class GameController : MonoBehaviour
             KeyWait("player2");
 
         }
-        LoseText.SetActive(true);
+        loseText.SetActive(true);
         if (string.IsNullOrWhiteSpace(loseTextCheck))
         {
             loseTextComponent.text = texPlayerLoose;
@@ -149,8 +171,8 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1, 10));
         waitTime = false;
         countdownText.text = "GO!";
-        cubeRenderer.material.color = Color.green;
-        
+        cube.SetActive(false);
+        cubeHide = true;
     }
 
     IEnumerator KeyWait(string player)
