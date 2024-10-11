@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b3da73d9ea6a6b84ea45f698e0909b49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c40bb07f54a37ca4fa6524b61dbc5696, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 194028773}
   - component: {fileID: 194028772}
   m_Layer: 5
-  m_Name: LoseText (1)
+  m_Name: Menu esc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72df340a84927524397de503851846a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d3f4cff4a7f5084d93be80f31a8d51a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 955884189}
   - component: {fileID: 955884188}
   m_Layer: 0
-  m_Name: hidethepainharold
+  m_Name: Winpic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1713,12 +1713,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 473416900}
+  countdown: {fileID: 473416897}
   cube: {fileID: 144449958}
+  loseSprite: {fileID: 21300000, guid: b461fe8fc01a1d845bdd5f4d34a54cc8, type: 3}
+  winPic: {fileID: 955884187}
   winText: {fileID: 190820470}
   loseText: {fileID: 1737232710}
   restartText: {fileID: 1914495245}
   player1: {fileID: 182352419}
   player2: {fileID: 1655143995}
+  spaceKeyImage: {fileID: 10191889}
+  enterKeyImage: {fileID: 343565013}
+  spaceKeyLoseSprite: {fileID: 21300000, guid: 62ce545dea23e7b45a2809e93ee67bc8, type: 3}
+  enterKeyLoseSprite: {fileID: 21300000, guid: 45c6e5171b9b42f4fa06f323a8244377, type: 3}
   timerScript: {fileID: 439707046}
 --- !u!114 &2125856233
 MonoBehaviour:

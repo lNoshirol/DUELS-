@@ -11,7 +11,10 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField] Text countdownText;
+    [SerializeField] GameObject countdown;
     public GameObject cube;
+    [SerializeField] Sprite loseSprite;
+    [SerializeField] GameObject winPic;
 
     private ReflexGameInput _reflexGameInput;
 
@@ -29,6 +32,7 @@ public class GameController : MonoBehaviour
     private Text winTextComponent;
     private Text loseTextComponent;
     private string loseTextCheck;
+    private SpriteRenderer winPicSprite;
 
     private Text player1TextComponent;
     private Text player2TextComponent;
@@ -36,8 +40,16 @@ public class GameController : MonoBehaviour
     string currentSceneName;
     float menuSceneName;
 
-    [SerializeField] Text player1;
+    [SerializeField] Text player1; 
     [SerializeField] Text player2;
+
+    [SerializeField] Image spaceKeyImage;
+    [SerializeField] Image enterKeyImage;
+    [SerializeField] Sprite spaceKeyLoseSprite;
+    [SerializeField] Sprite enterKeyLoseSprite;
+
+
+
 
 
     PlayerInput playerInput;
@@ -65,6 +77,12 @@ public class GameController : MonoBehaviour
 
         player1TextComponent = player1.GetComponent<Text>();
         player2TextComponent = player2.GetComponent<Text>();
+
+        winPicSprite = winPic.GetComponent<SpriteRenderer>();
+
+
+
+
         gamePlay = true;
         waitTime = false;
 
@@ -133,6 +151,20 @@ public class GameController : MonoBehaviour
             }
             
         }
+
+        if (player1TextComponent.color == Color.red & player2TextComponent.color == Color.red)
+        {
+            winText.SetActive(true);
+            winTextComponent.color = Color.red;
+            winTextComponent.text = "Everyone lost";
+            restartText.SetActive(true);
+            countdown.SetActive(false);
+            if (restartAction.WasPressedThisFrame())
+            {
+                SceneManager.LoadScene(currentSceneName);
+            }
+        }
+
     }
 
     private void Win(string textPlayerWin)
@@ -140,7 +172,9 @@ public class GameController : MonoBehaviour
         gamePlay = false;
         winText.SetActive(true);
         winTextComponent.text = textPlayerWin;
+        winTextComponent.color = Color.green;
         restartText.SetActive(true);
+        
     }
 
     private void Lose(string texPlayerLoose)
@@ -149,6 +183,7 @@ public class GameController : MonoBehaviour
         {
             player1Action = playerInput.actions.FindAction("LoseAction");
             player1TextComponent.color = Color.red;
+            spaceKeyImage.sprite = spaceKeyLoseSprite;
             KeyWait("player1");
 
 
@@ -157,6 +192,7 @@ public class GameController : MonoBehaviour
         {
             player2Action = playerInput.actions.FindAction("LoseAction");
             player2TextComponent.color = Color.red;
+            enterKeyImage.sprite = enterKeyLoseSprite;
             KeyWait("player2");
 
         }
