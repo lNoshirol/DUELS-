@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     [SerializeField] Text countdownText;
     [SerializeField] GameObject countdown;
     public GameObject cube;
@@ -48,17 +47,11 @@ public class GameController : MonoBehaviour
     [SerializeField] Sprite spaceKeyLoseSprite;
     [SerializeField] Sprite enterKeyLoseSprite;
 
-
-
-
-
     PlayerInput playerInput;
     InputAction player1Action;
     InputAction player2Action;
     InputAction restartAction;
     InputAction menuAction;
-
-
 
     [SerializeField] TimerScript timerScript;
     bool coroutine = true;
@@ -79,9 +72,6 @@ public class GameController : MonoBehaviour
         player2TextComponent = player2.GetComponent<Text>();
 
         winPicSprite = winPic.GetComponent<SpriteRenderer>();
-
-
-
 
         gamePlay = true;
         waitTime = false;
@@ -106,9 +96,7 @@ public class GameController : MonoBehaviour
 
         loseTextCheck = loseTextComponent.text;
         if (menuAction.WasPressedThisFrame())
-        {
             SceneManager.LoadScene("SampleScene");
-        }
 
         if (timerScript.countdownFinish && gamePlay)
         {
@@ -117,7 +105,7 @@ public class GameController : MonoBehaviour
                 StartCoroutine(Wait());
                 coroutine = false;
             }
-
+            
             if (player1Action.WasPressedThisFrame() && cubeHide)
             {
                 Win("Player 1 Win");
@@ -131,27 +119,20 @@ public class GameController : MonoBehaviour
         }
 
         else if (restartAction.WasPressedThisFrame() && cubeHide)
-        {
             SceneManager.LoadScene(currentSceneName);
-        }
-
-
-      
+        // Check if player is too fast
         if(waitTime)
         {
             if (player1Action.WasPressedThisFrame())
             {
                 Lose("Player 1 is too fast");
-                
             }
             else if (player2Action.WasPressedThisFrame())
             {
                 Lose("Player 2 is too fast");
-                
             }
-            
         }
-
+        // Everyone lost
         if (player1TextComponent.color == Color.red & player2TextComponent.color == Color.red)
         {
             winText.SetActive(true);
@@ -164,7 +145,6 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(currentSceneName);
             }
         }
-
     }
 
     private void Win(string textPlayerWin)
@@ -174,7 +154,6 @@ public class GameController : MonoBehaviour
         winTextComponent.text = textPlayerWin;
         winTextComponent.color = Color.green;
         restartText.SetActive(true);
-        
     }
 
     private void Lose(string texPlayerLoose)
@@ -185,8 +164,6 @@ public class GameController : MonoBehaviour
             player1TextComponent.color = Color.red;
             spaceKeyImage.sprite = spaceKeyLoseSprite;
             KeyWait("player1");
-
-
         }
         else
         {
@@ -194,18 +171,13 @@ public class GameController : MonoBehaviour
             player2TextComponent.color = Color.red;
             enterKeyImage.sprite = enterKeyLoseSprite;
             KeyWait("player2");
-
         }
         loseText.SetActive(true);
+        // Check if loseText is empty
         if (string.IsNullOrWhiteSpace(loseTextCheck))
-        {
             loseTextComponent.text = texPlayerLoose;
-        }
         else
-        {
             loseTextComponent.text += " " + texPlayerLoose;
-        }
-        
     }
 
     IEnumerator Wait()
@@ -232,7 +204,5 @@ public class GameController : MonoBehaviour
             player2Action = playerInput.actions.FindAction("Player2Action");
             player2TextComponent.color = Color.white;
         }
-
-
     }
 }
