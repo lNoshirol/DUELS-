@@ -28,6 +28,14 @@ public class Reloadscene : MonoBehaviour
             StartCoroutine(StartSongAndDestroy());
             HasPressedYKey = true;
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("Lucas Scene");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     IEnumerator StartSongAndDestroy()
