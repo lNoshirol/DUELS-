@@ -25,9 +25,7 @@ public class VictoryCondition : MonoBehaviour
             Destroy(_player2Tag.transform.parent.gameObject);
             _playerWinText.text = "Player 1 Win !";
             StartCoroutine(ChangeSceneAfterWin());
-        }
-
-       
+        }       
     }
     public IEnumerator ChangeSceneAfterWin()
     {
