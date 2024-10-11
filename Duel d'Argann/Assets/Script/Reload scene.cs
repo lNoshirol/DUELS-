@@ -15,6 +15,9 @@ public class Reloadscene : MonoBehaviour
 
     [SerializeField] GameObject jspFrere;
     [SerializeField] GameObject jspFrere2;
+    [SerializeField] GameObject jspFrere3;
+    [SerializeField] GameObject jspFrere4;
+    [SerializeField] GameObject jspFrere5;
 
     private void Start()
     {
@@ -42,6 +45,9 @@ public class Reloadscene : MonoBehaviour
     {
         jspFrere.SetActive(false);
         jspFrere2.SetActive(false);
+        jspFrere3.SetActive(false);
+        jspFrere4.SetActive(false);
+        jspFrere5.SetActive(false);
         m_AudioSource.PlayOneShot(outroSong);
         ReloadShit.SetActive(true);
         yield return new WaitForSeconds(60);

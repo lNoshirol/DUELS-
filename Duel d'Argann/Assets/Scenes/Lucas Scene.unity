@@ -8475,6 +8475,9 @@ MonoBehaviour:
   ReloadShit: {fileID: 810921840}
   jspFrere: {fileID: 511896007}
   jspFrere2: {fileID: 566725918}
+  jspFrere3: {fileID: 400174613}
+  jspFrere4: {fileID: 508140150}
+  jspFrere5: {fileID: 28985122}
 --- !u!1001 &1543115530
 PrefabInstance:
   m_ObjectHideFlags: 0
